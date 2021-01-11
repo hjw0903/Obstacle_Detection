@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+# This code is made by using the on-line library for Ultrasonic sensor and servo motor.
+# For the Ultrasonic senor, it is modified by using the pigpio library. 
 
 import time
 import pigpio
@@ -102,9 +103,6 @@ class Ultraservo:
                   startAngle = min(startAngle, self.MIN_ANGLE)
                   endAngle = max(endAngle, self.MAX_ANGLE)
 
-#            for angle in range(startAngle, endAngle, step):
-#                  print(self.readAngle(angle))
-
       def trig(self):
             """
             Triggers a reading.
@@ -148,28 +146,6 @@ class Ultraservo:
 
 if __name__ == "__main__":
 
-      '''
-      Current pin define according to the pin define chart
-      # Servo 1
-      HSERV_left_front = 12
-      pi.set_PWM_frequency(HSERV_left_front, 50)
-      pi.set_PWM_range(HSERV_left_front, 40000)
-      sonar_left_front = ultraServo.Ultraservo(pi, 24, 25, 23509)
-
-      # Servo 2
-      HSERV_right_front= 13
-      pi.set_PWM_frequency(HSERV_right_front, 50)
-      pi.set_PWM_range(HSERV_right_front, 40000)
-      sonar_right_front = ultraServo.Ultraservo(pi, 5, 4, 23509)
-
-      # Servo 3
-      HSERV_back = 20
-      pi.set_PWM_frequency(HSERV_back, 50)
-      pi.set_PWM_range(HSERV_back, 40000)
-      sonar_back = ultraServo.Ultraservo(pi, 6, 18, 23509)
-
-      '''
-
       pi = pigpio.pi()
       while pi.connected == False:
             subprocess.run("sudo pigpiod", shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -184,18 +160,19 @@ if __name__ == "__main__":
       us_front_left.moveServo(90)
       us_front_right.moveServo(90)
 
-#      text = None
-#      while text != '':
-#            text = input("Please confirm that all servo are set to 90 degree \nthen Press enter key:")
+'''
+      text = None
+      while text != '':
+            text = input("Please confirm that all servo are set to 90 degree \nthen Press enter key:")
 
-#      while True:
-#            for angle in range(0,160, 10):
-#                  print('front_left : ', angle, us_front_left.readAngle(angle))
-#                  print('front_right: ', angle, us_front_right.readAngle(angle))
-#                  print('       back: ', angle, us_back.readAngle(angle))
+      while True:
+            for angle in range(0,160, 10):
+                  print('front_left : ', angle, us_front_left.readAngle(angle))
+                  print('front_right: ', angle, us_front_right.readAngle(angle))
+                  print('       back: ', angle, us_back.readAngle(angle))
 
-#            for angle in range(160,0, -10):
-#                  print('front_left : ',us_front_left.readAngle(angle))
-#                  print('front_right: ',us_front_right.readAngle(angle))
-#                  print('       back: ',us_back.readAngle(angle))
-
+            for angle in range(160,0, -10):
+                  print('front_left : ',us_front_left.readAngle(angle))
+                  print('front_right: ',us_front_right.readAngle(angle))
+                  print('       back: ',us_back.readAngle(angle))
+'''
