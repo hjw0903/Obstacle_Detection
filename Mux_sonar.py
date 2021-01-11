@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+# This code is based on the pigpio library example code. (http://abyz.me.uk/rpi/pigpio/examples.html#Python%20code)
+# Modified by Jung Won Hwang (hjw0903@gmauil.com) for using the Multiplexer with the nine Ultrasonic sensors.
 
 import time
 
@@ -169,13 +170,6 @@ class ranger:
          time.sleep(0.01) # 0.06, 0.03
          trip = self.read()
          result = ((trip/2)/ 1000000.0 *34330) / 100 # change unit cm to m
-         #if result >= 99999: # when no object detect
-         #    print ('Sensor {} - no object detect'.format(counter + 1))
-         #else: # give the distance to detect object
-         #    print ('Sensor {} - {} cm to object'.format(counter + 1, round(result,2)))
-             #print (round(result,2))
-             #print (self._s0, self._s1)
-             #return result
 
          results[COUNT] = result
          COUNT += 1
