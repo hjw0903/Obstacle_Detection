@@ -1,3 +1,6 @@
+# This code is made by using the VL53L0X refference example code.
+# Modified by Jung Won Hwang (hjw0903@gmail.com) for using the pigpio libraty.
+
 import pigpio
 import time
 import VL53L0X
@@ -8,7 +11,6 @@ sensor1_shutdown = 6
 sensor2_shutdown = 5
 
 pi = pigpio.pi()
-#self.pi = pi
 
 shutdown1_mode = pi.get_mode(sensor1_shutdown)
 shutdown2_mode = pi.get_mode(sensor2_shutdown)
@@ -48,6 +50,7 @@ timing = tof.get_timing()
 if (timing < 20000):
     timing = 20000
 
+# To get a distance data, you can call "tof.get_distance()" function.
 distance = tof.get_distance()
 distance1 = tof1.get_distance()
 
